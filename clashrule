@@ -1,143 +1,325 @@
-[custom]
-;不要随意改变关键字，否则会导致出错
-;acl4SSR规则
+proxy-providers:
+  🛫 魔戒机场:
+    type: http
+    # 修改为你的 Clash 订阅链接
+    url: "https://mojie0201.xn--8stx8olrwkucjq3b.com/api/v1/client/subscribe?token=7f72975e9a0ae11af06a3c929799eaaf"
+    path: ./proxies/airport.yaml
+    interval: 86400
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states|俄罗斯|Russia|土耳其|阿根廷"
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 600
 
-;去广告：支持
-;自动测速：支持
-;微软分流：支持
-;苹果分流：支持
-;增强中国IP段：支持
-;增强国外GFW：支持
+mode: rule
+ipv6: true
+log-level: error
+allow-lan: true
+mixed-port: 7890
+unified-delay: false
+tcp-concurrent: true
+external-controller-tls: 127.0.0.1:9090
+find-process-mode: strict
+global-client-fingerprint: chrome
 
-;设置规则标志位
-;有个小技巧，下列不同列表可能会有重复规则，可以将想要命中的规则尽量提前
-ruleset=🚀 节点选择,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/proxies.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/direct.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
-ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
-ruleset=🍃 应用净化,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
-ruleset=🆎 AdBlock,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-ruleset=🆎 AdBlock,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
-ruleset=🆎 AdBlock,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/ad.list
-ruleset=🛡️ 隐私防护,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
-ruleset=📢 谷歌FCM,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
-ruleset=Ⓜ️ 微软云盘,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
-ruleset=Ⓜ️ 微软服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
-ruleset=🍎 苹果服务,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
-ruleset=📲 Telegram,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
-ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
-ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
-ruleset=🎮 游戏平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Steam.list
-ruleset=🎮 Nintendo,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/Nintendo.list
-ruleset=🤖 OpenAI,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/openai.list
-ruleset=🤖 DeepL,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/deepl.list
-ruleset=🎵 TikTok,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TikTok.list
-ruleset=📹 YouTube,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
-ruleset=🎥 Netflix,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
-ruleset=🎥 Netflix,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetflixIP.list
-ruleset=🎥 Disney+,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/DisneyPlus.list
-ruleset=📽️ PrimeVideo,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AmazonPrimeVideo/AmazonPrimeVideo.yaml
-ruleset=🌪 Gitlab,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/Gitlab.list
-ruleset=🎼 Spotify,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/spotify.list
-ruleset=🍑 DMMCOJP,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/dmmjp.list
-ruleset=📺 巴哈姆特,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bahamut.list
-ruleset=📺 Bilibili,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list
-ruleset=📺 Bilibili,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/BilibiliHMT.list
-ruleset=🌏 国内媒体,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
-ruleset=🌍 国外媒体,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/ProxyMedia.list
-ruleset=📰 微博,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/weibo.list
-ruleset=💬 微信,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/wechat.list
-ruleset=🍠 小红书,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/XiaoHongShu.list
-ruleset=🕺 字节跳动,https://raw.githubusercontent.com/chinnsenn/ClashCustomRule/master/ByteDance.list
-ruleset=🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
-ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
-ruleset=🎯 全球直连,[]GEOIP,CN
-ruleset=🐟 漏网之鱼,[]FINAL
-;设置规则标志位
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  skip-domain: ['Mijia Cloud']
 
-;设置分组标志位
-custom_proxy_group=🚀 节点选择`select`[]♻️ 自动选择`[]🔯 故障转移`[]🚀 手动切换`[]DIRECT`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点
-custom_proxy_group=🚀 手动切换`select`.*
-custom_proxy_group=♻️ 自动选择`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9])))`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🔯 故障转移`fallback`.*`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🐟 漏网之鱼`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=📲 Telegram`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🚀 手动切换
-custom_proxy_group=📹 YouTube`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🚀 手动切换
-custom_proxy_group=🎼 Spotify`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🚀 手动切换
-custom_proxy_group=🤖 OpenAI`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
-custom_proxy_group=🤖 DeepL`select`.*`[]DIRECT
-custom_proxy_group=🎵 TikTok`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
-custom_proxy_group=🎥 Netflix`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点`[]🇦🇺 澳大利亚节点
-custom_proxy_group=🎥 Disney+`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
-custom_proxy_group=📽️ PrimeVideo`select`[]🇭🇰 香港节点`[]🇨🇳 台湾节点`[]🇯🇵 日本节点`[]🇸🇬 狮城节点`[]🇺🇲 美国节点
-custom_proxy_group=🇭🇰 香港节点`select`(港|HK|Hong Kong)
-custom_proxy_group=🇯🇵 日本节点`select`(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)
-custom_proxy_group=🇺🇲 美国节点`select`(美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|United States|(?<![a-zA-Z])US(?![a-zA-Z])|(?<![a-zA-Z])USA(?![a-zA-Z])|(?<![a-zA-Z])USD(?![a-zA-Z]))
-custom_proxy_group=🇨🇳 台湾节点`select`(台|新北|彰化|TW|Taiwan)
-custom_proxy_group=🇸🇬 狮城节点`select`(新加坡|坡|狮城|SG|Singapore)
-custom_proxy_group=🇰🇷 韩国节点`select`(KR|Korea|KOR|首尔|韩|韓)
-custom_proxy_group=🇭🇰 香港节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:港|香港|HongKong|HK|Hong Kong)).*$)`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🇯🇵 日本节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan)).*$)`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🇺🇲 美国节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:美|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|United States|(?<![a-zA-Z])US(?![a-zA-Z])|(?<![a-zA-Z])USA(?![a-zA-Z])|(?<![a-zA-Z])USD(?![a-zA-Z]))).*$)`http://www.gstatic.com/generate_204`300,,150
-custom_proxy_group=🇨🇳 台湾节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:台|新北|彰化|TW|Taiwan)).*$)`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🇸🇬 狮城节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:新加坡|坡|狮城|SG|Singapore)).*$)`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=🇰🇷 韩国节点-自动`url-test`(^(?!.*x(?:[2-9]|[1-9][0-9]))(?=.*(?:KR|Korea|KOR|首尔|韩|韓))`http://www.gstatic.com/generate_204`300,100
-custom_proxy_group=📺 巴哈姆特`select`[]🇨🇳 台湾节点-自动`[]🚀 节点选择`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🍑 DMMCOJP`select`[]🇯🇵 日本节点
-custom_proxy_group=📺 Bilibili`select`[]DIRECT`[]🎯 全球直连`[]🇨🇳 台湾节点-自动`[]🇭🇰 香港节点-自动
-custom_proxy_group=🌪 Gitlab`select`[]DIRECT`[]🎯 全球直连`[]🇨🇳 台湾节点-自动`[]🇭🇰 香港节点-自动
-custom_proxy_group=🌍 国外媒体`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇸🇬 狮城节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🚀 手动切换`[]DIRECT
-custom_proxy_group=🌏 国内媒体`select`[]DIRECT`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇸🇬 狮城节点-自动`[]🇯🇵 日本节点-自动`[]🚀 手动切换
-custom_proxy_group=📢 谷歌FCM`select`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=Ⓜ️ 微软云盘`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=Ⓜ️ 微软服务`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=🍎 苹果服务`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=🎮 游戏平台`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=📰 微博`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择`[]🇸🇬 狮城节点-自动`[]🇭🇰 香港节点-自动`[]🇨🇳 台湾节点-自动`[]🇯🇵 日本节点-自动`[]🇺🇲 美国节点-自动`[]🇰🇷 韩国节点-自动`[]🇬🇧 英国节点`[]🇩🇪 德国节点`[]🇨🇦 加拿大节点`[]🇧🇷 巴西节点`[]🇮🇳 印度节点`[]🇱🇺 卢森堡节点`[]🇳🇱 荷兰节点`[]🇮🇹 意大利节点`[]🇨🇭 瑞士节点`[]🇫🇷 法国节点`[]🇸🇦 沙特阿拉伯节点`[]🇮🇱 以色列节点`[]🇦🇪 迪拜节点`[]🇲🇽 墨西哥节点`[]🇨🇱 智利节点`[]🇦🇷 阿根廷节点`[]🇿🇦 南非节点`[]🇸🇪 瑞典节点`[]🇹🇷 土耳其节点`[]🇦🇺 澳大利亚节点`[]🇵🇰 巴基斯坦节点`[]🇹🇭 泰国节点`[]🇵🇭 菲律宾节点`[]🇷🇺 俄罗斯`[]🚀 手动切换
-custom_proxy_group=💬 微信`select`[]DIRECT`[]REJECT`[]🚀 手动切换
-custom_proxy_group=🍠 小红书`select`[]DIRECT`[]REJECT`[]🚀 手动切换
-custom_proxy_group=🕺 字节跳动`select`[]DIRECT`[]REJECT`[]🚀 手动切换
-custom_proxy_group=🎮 Nintendo`select`[]🚀 节点选择`.*
-custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择`[]♻️ 自动选择
-custom_proxy_group=🛑 广告拦截`select`[]REJECT`[]DIRECT
-custom_proxy_group=🍃 应用净化`select`[]REJECT`[]DIRECT
-custom_proxy_group=🆎 AdBlock`select`[]REJECT`[]DIRECT
-custom_proxy_group=🛡️ 隐私防护`select`[]REJECT`[]DIRECT
-custom_proxy_group=🇬🇧 英国节点`select`(UK|英|伦敦)
-custom_proxy_group=🇩🇪 德国节点`select`(DE|德)
-custom_proxy_group=🇨🇦 加拿大节点`select`(CA|Canada|加拿大|枫)
-custom_proxy_group=🇧🇷 巴西节点`select`(BA|巴西)
-custom_proxy_group=🇮🇳 印度节点`select`(IN|印度)
-custom_proxy_group=🇱🇺 卢森堡节点`select`(LU|卢森堡)
-custom_proxy_group=🇳🇱 荷兰节点`select`(NL|荷兰)
-custom_proxy_group=🇮🇹 意大利节点`select`(IT|意大利|意)
-custom_proxy_group=🇨🇭 瑞士节点`select`(CH|瑞士)
-custom_proxy_group=🇫🇷 法国节点`select`(FR|法|巴黎)
-custom_proxy_group=🇸🇦 沙特阿拉伯节点`select`(沙|沙特|阿拉伯)
-custom_proxy_group=🇮🇱 以色列节点`select`(IL|以色列)
-custom_proxy_group=🇦🇪 迪拜节点`select`(UAE|迪拜|杜拜|Dubayy)
-custom_proxy_group=🇲🇽 墨西哥节点`select`(墨西哥|mexico|México|Mexican)
-custom_proxy_group=🇨🇱 智利节点`select`(智利|Chile|CL)
-custom_proxy_group=🇦🇷 阿根廷节点`select`(阿根廷|Argentina|AR)
-custom_proxy_group=🇿🇦 南非节点`select`(南非|Zuid-Afrika)
-custom_proxy_group=🇸🇪 瑞典节点`select`(瑞典|Sweden|Sverige)
-custom_proxy_group=🇹🇷 土耳其节点`select`(TR|土耳其|土)
-custom_proxy_group=🇦🇺 澳大利亚节点`select`(土澳|澳大利亚|澳|AUS)
-custom_proxy_group=🇵🇭 菲律宾节点`select`(菲|PH)
-custom_proxy_group=🇹🇭 泰国节点`select`(泰|TH)
-custom_proxy_group=🇵🇰 巴基斯坦节点`select`(巴基斯坦|PK)
-custom_proxy_group=🇷🇺 俄罗斯`select`(俄|俄罗斯|RUS|RF)
-;设置分组标志位
+tun:
+  enable: true
+  stack: system
+  dns-hijack: [any:53]
+  auto-route: true
+  auto-detect-interface: true
+  device: Meta
+  strict-route: true
 
-enable_rule_generator=true
-overwrite_original_rules=true
-skip_failed_links=true
+dns:
+  enable: true
+  prefer-h3: true
+  ipv6: true
+  listen: 0.0.0.0:1053
+  fake-ip-range: 198.18.0.1/16
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - '*'
+    - '*.lan'
+    - '*.localdomain'
+    - '*.example'
+    - '*.invalid'
+    - '*.localhost'
+    - '*.test'
+    - '*.local'
+    - '*.home.arpa'
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.edu.cn'
+    - 'time.*.apple.com'
+    - 'time-ios.apple.com'
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - '*.time.edu.cn'
+    - '*.ntp.org.cn'
+    - '+.pool.ntp.org'
+    - 'time1.cloud.tencent.com'
+    - 'music.163.com'
+    - '*.music.163.com'
+    - '*.126.net'
+    - 'musicapi.taihe.com'
+    - 'music.taihe.com'
+    - 'songsearch.kugou.com'
+    - 'trackercdn.kugou.com'
+    - '*.kuwo.cn'
+    - 'api-jooxtt.sanook.com'
+    - 'api.joox.com'
+    - 'joox.com'
+    - 'y.qq.com'
+    - '*.y.qq.com'
+    - 'streamoc.music.tc.qq.com'
+    - 'mobileoc.music.tc.qq.com'
+    - 'isure.stream.qqmusic.qq.com'
+    - 'dl.stream.qqmusic.qq.com'
+    - 'aqqmusic.tc.qq.com'
+    - 'amobile.music.tc.qq.com'
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - 'music.migu.cn'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
+    - '+.qq.com'
+    - '+.tencent.com'
+    - '+.steamcontent.com'
+    - '+.srv.nintendo.net'
+    - '*.n.n.srv.nintendo.net'
+    - '+.cdn.nintendo.net'
+    - '+.stun.playstation.net'
+    - 'xbox.*.*.microsoft.com'
+    - '*.*.xboxlive.com'
+    - 'xbox.*.microsoft.com'
+    - 'xnotify.xboxlive.com'
+    - '+.battlenet.com.cn'
+    - '+.wotgame.cn'
+    - '+.wggames.cn'
+    - '+.wowsgame.cn'
+    - '+.wargaming.net'
+    - 'proxy.golang.org'
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    - 'heartbeat.belkin.com'
+    - '*.linksys.com'
+    - '*.linksyssmartwifi.com'
+    - '*.router.asus.com'
+    - 'mesu.apple.com'
+    - 'swscan.apple.com'
+    - 'swquery.apple.com'
+    - 'swdownload.apple.com'
+    - 'swcdn.apple.com'
+    - 'swdist.apple.com'
+    - 'lens.l.google.com'
+    - 'stun.l.google.com'
+    - 'na.b.g-tun.com'
+    - '+.nflxvideo.net'
+    - '*.square-enix.com'
+    - '*.finalfantasyxiv.com'
+    - '*.ffxiv.com'
+    - '*.ff14.sdo.com'
+    - 'ff.dorado.sdo.com'
+    - '*.mcdn.bilivideo.cn'
+    - '+.media.dssott.com'
+    - 'shark007.net'
+    - 'Mijia Cloud'
+    - '+.cmbchina.com'
+    - '+.cmbimg.com'
+    - 'adguardteam.github.io'
+    - 'adrules.top'
+    - 'anti-ad.net'
+    - 'local.adguard.org'
+    - 'static.adtidy.org'
+    - '+.sandai.net'
+    - '+.n0808.com'
+    - '+.3gppnetwork.org'
+    - '+.uu.163.com'
+    - 'ps.res.netease.com'
+ nameserver:
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
 
-#过滤节点，正则匹配
-exclude_remarks=(IPV6|重置|流量|用户|本站|漏洞|永久虚通路|车|邀|免翻|邀请|eevpn|域名|机场|刷新|禁止|备用登录|计划|面板|忘记|到期|套餐|官网|更多|关注|25倍率|http|增加|持续|渠道|购买|QQ|Ins|二手)
+proxy-groups:
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 俄罗斯节点]}
+  # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🤖 人工智能, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🎮 游戏服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择, 土耳其节点]}
+  - {name: 🪟 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇬 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇨🇳 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇨🇳 直连 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
+  - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
-;luck
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇭🇰|香港"}
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇹🇼|台湾"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇯🇵|日本"}
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇰🇷|韩国"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇸🇬|新加坡"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇺🇸|美国"}
+  - {name: 俄罗斯节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "俄罗斯|Russia"}
+  - {name: 土耳其节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "土耳其|Turkey"}
+
+rule-providers:
+  ads:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/ads.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ads.list"
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rules/applications.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/applications.list"
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/private.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/private.list"
+    interval: 86400
+
+  microsoft-cn:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/microsoft-cn.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/microsoft-cn.list"
+    interval: 86400
+
+  apple-cn:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/apple-cn.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/apple-cn.list"
+    interval: 86400
+
+  google-cn:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/google-cn.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/google-cn.list"
+    interval: 86400
+
+  games-cn:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/games-cn.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/games-cn.list"
+    interval: 86400
+
+  ai:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/ai.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ai.list"
+    interval: 86400
+
+  networktest:
+    type: http
+    behavior: classical
+    format: text
+    path: ./rules/networktest.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/networktest.list"
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/proxy.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/proxy.list"
+    interval: 86400
+
+  cn:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/cn.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cn.list"
+    interval: 86400
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    format: text
+    path: ./rules/telegramip.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/telegramip.list"
+    interval: 86400
+
+  privateip:
+    type: http
+    behavior: ipcidr
+    format: text
+    path: ./rules/privateip.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/privateip.list"
+    interval: 86400
+
+  cnip:
+    type: http
+    behavior: ipcidr
+    format: text
+    path: ./rules/cnip.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cnip.list"
+    interval: 86400
+
+rules:
+  - RULE-SET,ads,🛑 广告拦截
+  - RULE-SET,applications,🖥️ 直连软件
+  - RULE-SET,private,🔒 私有网络
+  - RULE-SET,microsoft-cn,🪟 微软服务
+  - RULE-SET,apple-cn,🍎 苹果服务
+  - RULE-SET,google-cn,🇬 谷歌服务
+  - RULE-SET,games-cn,🎮 游戏服务
+  - RULE-SET,ai,🤖 人工智能
+  - RULE-SET,networktest,📈 网络测试
+  - RULE-SET,proxy,🪜 代理域名
+  - RULE-SET,cn,🇨🇳 直连域名
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
+  - RULE-SET,privateip,🔒 私有网络,no-resolve
+  - RULE-SET,cnip,🇨🇳 直连 IP
+  - MATCH,🐟 漏网之鱼
